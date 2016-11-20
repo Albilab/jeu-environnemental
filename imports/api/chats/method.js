@@ -1,25 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-
 import { check } from 'meteor/check';
-
-export const Chats = new Mongo.Collection('chat');
-
-//Schema de Chats
-Chats.schema = new SimpleSchema({
-  text: {type: String},
-  createdAt: {type: Date},
-  owner: {type: String},
-  username: {type: String},
-  channel : {type: String}
-});
-
-if (Meteor.isServer) {
-  // This code only runs on the server
-  Meteor.publish('chats.list', function chatsPublication() {
-    return Chats.find();
-  });
-}
+import { Chats } from './chats.js';
 
 Meteor.methods({
   'chats.insert'(text, channel) {

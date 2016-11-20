@@ -1,6 +1,9 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { Chats } from '../../../imports/api/chats.js'
+
+import './accueil.html';
+
+import { Chats } from '/imports/api/chats/chats.js'
 
 Template.accueil.events({
     'click .action-1': function(event) {
@@ -132,7 +135,7 @@ Template.accueil.helpers({
 
 Template.accueil.onCreated(function() {
   this.autorun(() => {
-    const log = this.subscribe('chats.list');
+    this.subscribe('chats.list');
   });
 });
 
