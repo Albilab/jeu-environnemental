@@ -1,0 +1,126 @@
+<template name="accueil">
+  <div class="section no-pad-bot" id="index-banner">
+    <h2 class="header center white-text bold">Testons les réalités de MeteorJS - Timers</h2>
+    <br>
+  </div>
+  <div class="section">
+    <header>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
+      <ul>
+        {{#if currentUser}}
+          <li class="bold"><a class="waves-effect waves-indigo">Bonjour {{ currentUser.username }}</a></li>
+          <li class="bold"><a class="waves-effect waves-indigo logout">Déconnecter</a></li>
+        {{else}}
+            <li class="bold">
+              <a href="{{ pathFor 'inscription' }}" class="waves-effect waves-indigo"><i class="material-icons">mail_outline</i> Inscription</a>
+            </li>
+            <li class="bold">
+              <a href="{{ pathFor 'connexion' }}" class="connexion waves-effect waves-indigo"><i class="material-icons">lock</i> Connexion membre</a>
+            </li>
+        {{/if}}
+      </ul>
+    </header>
+  </div>
+  <div class="section">
+    <a class="waves-effect waves-light btn action-1">Lançons une action sur le serveur</a>
+    <div class="progress">
+      <div class="determinate pourcentage-1" style="width: 0%"></div>
+    </div>
+    <p class="pourcentage-numerique-1"></p>
+    <p class="timer-1"></p>
+    <br/><br/><br/>
+    <div class="notification">
+
+    </div>
+  </div>
+  <div class="section">
+    <a class="waves-effect waves-light btn action-2">Lançons une action sur le serveur</a>
+    <div class="progress">
+      <div class="determinate pourcentage-2" style="width: 0%"></div>
+    </div>
+    <p class="pourcentage-numerique-2"></p>
+    <p class="timer-2"></p>
+    <br/><br/><br/>
+    <div class="notification">
+    </div>
+  </div>
+  {{#if currentUser}}
+    <div class="section">
+      <div id="chat-view">
+        <ul>
+          {{#each chats}}
+            <li class="">
+              <span class="text"><strong>{{ username }} - {{ timeView(createdAt) }} :</strong>   {{ text }}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div id="chat-interface">
+        <div class="chat-input">
+          <input id="input_text" type="text" class="chat-text" placeholder="Votre texte a envoyé">
+        </div>
+      </div>
+    </div>
+  {{else}}
+  <div class="section">
+    <div class="row">
+      <form class="col s12 m6 connexion" method="post">
+          <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="email" type="email" name="loginEmail" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                  <input id="password" type="password" name="loginPassword" class="validate">
+                  <label for="password">Mot de passe
+                </label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light light-blue" type="submit" name="login">Se connecter
+            <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="section">
+    <div class="row">
+      <form class="col s12 m7 offset-m2 register" method="post">
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">assignment_ind</i>
+                <input id="username" type="text" name="registerUsername" class="validate">
+                <label for="username">Pseudo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+                <input id="email" type="email" name="registerEmail" class="validate">
+                <label for="email" data-error="Email invalide" data-success="Email valide">Email</label>
+            </div>
+        </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock</i>
+                <input id="password" type="password" name="registerPassword" class="validate">
+                <label for="password" data-error="Mot de passe invalide" data-success="Mot de passe valide">Mot de passe</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light light-blue center" type="submit" name="action">Rejoins la communauté
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+  {{/if}}
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+      </div>
+    </div>
+  </div>
+</template>
