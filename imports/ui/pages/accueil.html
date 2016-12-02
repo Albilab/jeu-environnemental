@@ -7,7 +7,6 @@
     <header>
       <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
       <ul>
-        {{_ "connexion" }}
         {{#if currentUser}}
           <li class="bold"><a class="waves-effect waves-indigo">Bonjour {{ currentUser.username }}</a></li>
           <li class="bold"><a class="waves-effect waves-indigo logout">Déconnecter</a></li>
