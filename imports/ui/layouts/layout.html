@@ -5,19 +5,27 @@
 </head>
 <template name="layout">
   <body>
-    <main>
-      <div class="container">
-      {{> Template.dynamic template=corps}}
-      </div>
-    </main>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">Moteur de Jeu</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Menu</a></li>
+        </ul>
 
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Menu</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
+      </div>
+    </nav>
+    <main>
+      {{> Template.dynamic template=corps}}
+    </main>
     <footer class="page-footer blue-grey">
-      <div class="row">
-        <div class="container">
-          <div class="col l6 s12">
-            <h5 class="white-text">Premier Test sur les systèmes de timing</h5>
-            <p class="grey-text text-lighten-4">Comment peut-on déclencher différents systèmes de timing ?</p>
-          </div>
+      <div class="container">
+        <div class="col l6 s12">
+          <h5 class="white-text">Premier Test sur les systèmes de timing</h5>
+          <p class="grey-text text-lighten-4">Comment peut-on déclencher différents systèmes de timing ?</p>
         </div>
       </div>
       <div class="footer-copyright">
