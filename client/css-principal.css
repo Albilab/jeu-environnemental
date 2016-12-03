@@ -6,6 +6,12 @@
  * Made By MaterializeCSS.com
  */
 
+canvas{
+  background-color: black;
+  min-width : 1024px;
+  margin : auto;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444 !important;

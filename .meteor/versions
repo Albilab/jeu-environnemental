@@ -33,7 +33,7 @@ ejson@1.0.13
 email@1.1.18
 es5-shim@4.6.15
 fastclick@1.0.13
-fourseven:scss@3.10.1
+fourseven:scss@3.13.0
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -82,6 +82,7 @@ service-configuration@1.0.11
 session@1.1.7
 sha@1.0.9
 shell-server@0.2.1
+sorenpeterson:createjs@0.0.2
 spacebars@1.0.13
 spacebars-compiler@1.0.13
 srp@1.0.10
