@@ -3,6 +3,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 // Import to load these templates
 import '../../ui/layouts/layout.js';
+import '../../ui/layouts/layoutGame.js';
 import '../../ui/pages/accueil.js';
 import '../../ui/pages/game.js';
 
@@ -22,6 +23,6 @@ publicRoutes.route('/', {
 publicRoutes.route('/game', {
 	names : 'game',
 	action(params, queryParams){
-		BlazeLayout.render("layout", {corps: "game"});
+		BlazeLayout.render("layoutGame",{corps: "game"});
 	}	
 });

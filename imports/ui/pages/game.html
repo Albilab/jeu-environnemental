@@ -1,10 +1,67 @@
 <template name="game">
-  <div class="section no-pad-bot" id="index-banner">
-    <h2 class="header center white-text bold">Testons Phaser avec plugin isometric</h2>
-    <br>
-  </div>
-  <div class="section">
-    <div id="Phaser_Game">
-    </div>
-  </div>
+	{{#if currentUser}}
+	<div id="container_top">
+		<div id="container_menu">
+			<div id="container_parametrage">
+				<a class="btn-floating waves-effect waves-light black"><i class="material-icons">menu</i></a>
+			</div>
+		</div>
+	</div>
+	<div id="container_game">
+	    <div id="Phaser_Game">
+
+	    </div>
+	    <div id="container_bottom">
+			<div class="row">
+		      <div id="container_chat" class="col s4">
+		      	<div id="chat_message">
+			        <ul>
+			          {{#each chats}}
+			            <li class="">
+			              <span class="text"><strong>{{ username }} - {{ timeView(createdAt) }} :</strong>   {{ text }}</span>
+			            </li>
+			          {{/each}}
+			        </ul>
+			    </div>
+			    <div id="chat_input_bar">
+			        <div class="chat_input">
+			          <input id="input_text" type="text" class="chat-text" placeholder="Votre texte a envoyé">
+			        </div>
+		      	</div>
+		      </div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		      <div class="col s1"></div>
+		    </div>
+		</div>
+	</div>
+	{{else}}
+	<div class="section">
+	    <div class="row">
+	      <form class="col s12 m6 connexion" method="post">
+	          <div class="row">
+	              <div class="input-field col s12">
+	                <i class="material-icons prefix">account_circle</i>
+	                <input id="email" type="email" name="loginEmail" class="validate">
+	                <label for="email">Email</label>
+	              </div>
+	              <div class="input-field col s12">
+	                <i class="material-icons prefix">lock</i>
+	                  <input id="password" type="password" name="loginPassword" class="validate">
+	                  <label for="password">Mot de passe
+	                </label>
+	              </div>
+	            </div>
+	            <button class="btn waves-effect waves-light light-blue" type="submit" name="login">Se connecter
+	            <i class="material-icons right">send</i>
+	        </button>
+	      </form>
+	    </div>
+	</div>
+	{{/if}}
 </template>
