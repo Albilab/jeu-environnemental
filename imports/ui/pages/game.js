@@ -1,8 +1,13 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
+
+import { Chats } from '/imports/api/chats/chats.js';
+
 import './game.html';
 
 Template.game.onRendered(function() {
+	$("#container_game").css("height",$(window).height());
+    $("#container_bottom").css("left",($(window).width()-1024)/2);
 	var game = new Phaser.Game(1024, 768, Phaser.AUTO, 'Phaser_Game', null, true, true);
 
 	var BasicGame = function (game) { };
@@ -224,4 +229,53 @@ Template.game.onRendered(function() {
 
 	game.state.add('Boot', BasicGame.Boot);
 	game.state.start('Boot');
+});
+
+Template.game.onCreated(function() {
+  $(window).resize(function() {
+    $("#container_game").css("height",$(window).height());
+    $("#container_bottom").css("left",($(window).width()-1024)/2);
+  });
+});
+
+Template.game.events({
+    'submit form.connexion': function(event) {
+        event.preventDefault();
+        var emailVar = event.target.loginEmail.value;
+        var passwordVar = event.target.loginPassword.value;
+        Meteor.loginWithPassword(emailVar, passwordVar, function(error){
+            if(error){
+                
+            } else {
+                //FlowRouter.go("/");
+                console.log('Utilisateur connecté');
+            }
+        });
+    },
+    'keypress .chat-text': function (evt) {
+        if (evt.which === 13) {
+            const target = evt.target;
+            Meteor.call('chats.insert', target.value, "general" ,function(error, result){
+                target.value="";
+            });
+        }
+    }
+});
+
+Template.game.helpers({
+  chats() {
+    return Chats.find({});
+  }
+})
+
+Template.game.helpers({
+  timeView(dateTime) {
+    return dateTime.getHours()+":"+dateTime.getMinutes()+":"+dateTime.getSeconds();
+  }
+})
+
+Template.game.onCreated(function() {
+    this.autorun(() => {
+        this.subscribe('chats.list');
+	});
 });

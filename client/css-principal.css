@@ -5,12 +5,65 @@
  *
  * Made By MaterializeCSS.com
  */
+body{
+  background-color: black;
+}
 
 canvas{
   background-color: black;
   min-width : 1024px;
   margin : auto;
 }
+
+#container_game{
+  min-width : 100%;
+  background-color: black;
+}
+
+#container_top{
+  min-width : 100%;
+  position: fixed;
+}
+
+#container_menu{
+  margin : auto;
+  width : 1024px;
+  position: relative;
+}
+
+#container_parametrage{
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  min-height: 25px;
+}
+
+#container_bottom{
+  width : 1024px;
+  background-color: #CCC;
+  position: absolute;
+  bottom: 0;
+}
+
+#chat_message{
+  background-color: white;
+  height: 120px;
+  padding: 10px;
+  padding-top: 0px;
+  margin-left: -10px;
+  overflow-x: hidden;
+  overflow-y : auto;
+  position: relative;
+}
+
+#chat_input_bar{
+  background-color: #FFF;
+  margin-left: -10px;
+  margin-bottom: -20px;
+  padding-left : 10px;
+  padding-right : 10px;
+}
+
 
 nav ul a,
 nav .brand-logo {
