@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 body{
-  background-color: black;
+  background-color: white;
 }
 
 canvas{
@@ -40,8 +40,8 @@ canvas{
 #container_bottom{
   width : 1024px;
   background-color: #CCC;
-  position: absolute;
   bottom: 0;
+  margin : auto;
 }
 
 #chat_message{

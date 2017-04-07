@@ -30,13 +30,13 @@ Template.game.onRendered(function() {
 	        game.iso.anchor.setTo(0.5, 0.1);
 
 	        game.load.image('perso', 'phaser_img/sara-logo.png');
-			game.load.image('cube', 'phaser_img/cube.png');
+			//game.load.image('cube', 'phaser_img/cube.png');
 					
 		},
 		create: function () {       
 			isoGroup = game.add.group();
 			// Set the global gravity for IsoArcade.
-        	game.physics.isoArcade.gravity.setTo(0, 0, -400);
+        	//game.physics.isoArcade.gravity.setTo(0, 0, -400);
 
 		    // we won't really be using IsoArcade physics, but I've enabled it anyway so the debug bodies can be seen
 		    isoGroup.enableBody = true;
@@ -127,16 +127,12 @@ Template.game.onRendered(function() {
 			this.cursors = game.input.keyboard.createCursorKeys();
 
 			this.game.input.keyboard.addKeyCapture([
-				Phaser.Keyboard.LEFT,
-				Phaser.Keyboard.RIGHT,
-				Phaser.Keyboard.UP,
-				Phaser.Keyboard.DOWN,
-            	Phaser.Keyboard.SPACEBAR
+				d
 			]);
 
 			var space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	        space.onDown.add(function () {
-	            perso.body.velocity.z = 300;
+	            p 
 	        }, this);
 
 					

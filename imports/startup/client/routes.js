@@ -6,6 +6,7 @@ import '../../ui/layouts/layout.js';
 import '../../ui/layouts/layoutGame.js';
 import '../../ui/pages/accueil.js';
 import '../../ui/pages/game.js';
+import '../../ui/pages/test.js';
 
 // Route publique
 
@@ -24,5 +25,11 @@ publicRoutes.route('/game', {
 	names : 'game',
 	action(params, queryParams){
 		BlazeLayout.render("layoutGame",{corps: "game"});
+	}	
+});
+publicRoutes.route('/test', {
+	names : 'game',
+	action(params, queryParams){
+		BlazeLayout.render("layoutGame",{corps: "test"});
 	}	
 });
